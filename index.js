@@ -10,5 +10,5 @@
  */
 
 angular.module('win.api-client',[])
-  .service('apiClient', ['config', '$http', require('./src/token-auth-provider')])
+  .service('apiClient', ['config', '$http', require('./src/api-client')])
 ;
