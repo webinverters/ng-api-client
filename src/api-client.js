@@ -20,7 +20,7 @@ module.exports = function construct(config, $http, authSvc, logger) {
 
   var formulateHttpHeaders = function(opts) {
     opts = opts || {};
-    var user = authSvc.currentUser();
+    var user = authSvc.currentIdentity();
     if (user && user.token) {
       opts.headers = {'Authorization': 'Bearer '+user.token}
     }
@@ -32,6 +32,7 @@ module.exports = function construct(config, $http, authSvc, logger) {
   };
   var errorHandler = function(res) {
     if (res.status == 401) {
+      authSvc.currentIdentity(null);
       return authSvc.reauthenticate();
     }
     return {
