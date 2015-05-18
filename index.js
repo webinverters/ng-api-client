@@ -9,7 +9,6 @@
  * @license Apache-2.0
  */
 
-angular.module('robustAuth',[])
-  .service('authProvider', ['config', '$http', require('./src/token-auth-provider')])
-  .service('authSvc', ['config', 'authProvider', 'storage', 'logger', require('./src/auth-svc.js')])
+angular.module('win.api-client',[])
+  .service('apiClient', ['config', '$http', require('./src/token-auth-provider')])
 ;
